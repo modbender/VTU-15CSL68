@@ -17,20 +17,6 @@ GLfloat vertices[][3] = {
 
 GLfloat rotateValue = 8.0, changeValue = 1.0;
 
-void triangle(int a,int b,int c){
-    glBegin(GL_TRIANGLES);
-    glColor3fv(colors[a]);
-    glNormal3fv(normals[a]);
-    glVertex3fv(vertices[a]);
-    glColor3fv(colors[b]);
-    glNormal3fv(normals[b]);
-    glVertex3fv(vertices[b]);
-    glColor3fv(colors[c]);
-    glNormal3fv(normals[c]);
-    glVertex3fv(vertices[c]);
-    glEnd();
-}
-
 void polygon(int a,int b,int c, int d){
     glBegin(GL_POLYGON);
     glColor3fv(colors[a]);
@@ -49,11 +35,12 @@ void polygon(int a,int b,int c, int d){
 }
 
 void colorCube(void){
-    triangle(1,2,7);
-    triangle(2,6,7);
-    triangle(6,5,7);
+    polygon(0,3,2,1);
+    polygon(2,3,7,6);
+    polygon(0,4,7,3);
     polygon(1,2,6,5);
-    triangle(5,1,7);
+    polygon(4,5,6,7);
+    polygon(0,1,5,4);
 }
 
 static GLfloat theta[] = {0.0,0.0,0.0};
@@ -96,7 +83,7 @@ void myReshape(int w,int h){
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     if(w<=h){
-        glFrustum(-2.0,2.0,-2.0*(GLfloat)h/(GLfloat)w,2.0*(GLfloat)h/(GLfloat)w,-2.0,20.0);
+        glFrustum(-2.0,2.0,-2.0*(GLfloat)h/(GLfloat)w,2.0*(GLfloat)h/(GLfloat)w,2.0,20.0);
     }
     else{
         glFrustum(-2.0,2.0,-2.0*(GLfloat)w/(GLfloat)h,2.0*(GLfloat)w/(GLfloat)h,2.0,20.0);

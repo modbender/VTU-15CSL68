@@ -15,8 +15,6 @@ GLfloat vertices[][3] = {
     {1.0,0.0,1.0},{1.0,1.0,1.0},{0.0,1.0,1.0}
 };
 
-GLfloat extr[3] = {2.0,2.0,2.0}, extc[3] = {1.0,0.0,0.0};
-
 void polygon(int a,int b,int c,int d){
     glBegin(GL_POLYGON);
     glColor3fv(colors[a]);
@@ -31,9 +29,6 @@ void polygon(int a,int b,int c,int d){
     glColor3fv(colors[d]);
     glNormal3fv(normals[d]);
     glVertex3fv(vertices[d]);
-    glColor3fv(extc);
-    glNormal3fv(extr);
-    glVertex3fv(extr);
     glEnd();
 }
 
