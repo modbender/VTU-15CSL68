@@ -34,7 +34,7 @@ void tetrahedron(int m){
     glColor3f(1.0,1.0,1.0);
     divide_triangle(v[0],v[1],v[2],m);
     glColor3f(1.0,0.0,0.0);
-    divide_triangle(v[3],v[2],v[2],m);
+    divide_triangle(v[3],v[2],v[1],m);
     glColor3f(0.0,1.0,0.0);
     divide_triangle(v[0],v[3],v[1],m);
     glColor3f(0.0,0.0,1.0);
